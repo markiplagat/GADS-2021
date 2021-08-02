@@ -31,7 +31,7 @@
     <main>
         <aside><img src="images/logo.png" alt="Bet"></aside>
         <article>
-            <img src="images/banner.png" class=="banner" alt="banner">
+            <img src="images/banner.png" class="banner" alt="banner">
             <h1>Welcome To Bethany Pie shop</h1>
             <p class="sub-title">Welcome to our store
                 <a href="pies.html">browse our pies</a>
@@ -39,14 +39,22 @@
             </p>
         </article> 
     </main>
-        <footer>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="pies.html">Pies</a></li>
-                    <li><a href="contact.html">Contacts</a></li>
-                </ul>
-            </nav>
-        </footer>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html" class="link">Pies</a></li>
+                <li><a href="contact.html" class="link">Contacts</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script>
+        // Open link in a different page 
+        let links = document.querySelectorAll(".link");
+        links.forEach(function(link) {
+            link.setAttribute("target", "_blank");
+        });
+    </script>
 </body>
+
 </html>
