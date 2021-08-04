@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="site.css" type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie | Order</title>
+    <style>
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group input,
+        .input-group textarea,
+        .input-group select {
+            padding: 10px;
+            border: solid 1px #999;
+            border-radius: 2px;
+            width: 100%;
+        }
+        label {
+            font-weight: 600;
+        }
+
+        input[type="reset"] {
+            background: transparent;
+            border: 0;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        input[type="submit"]{
+            border: solid 1px #999;
+            border-radius: 3px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <aside><img src="images/logo.png" alt="Bet"></aside>
+        <article>
+            <h1>Order</h1>
+            <form action="http://localhost:7071/api/post" method="POST">
+                <div class="input-group">
+                    <div><label for="first-name">First Name</label></div>
+                    <div><input type="text" name="first-name" id="first-name" /></div>
+                </div>
+                <div class="input-group">
+                    <div><label for="last-name">Last Name</label></div>
+                    <div><input type="text" name="last-name" id="last-name" /></div>
+                </div>
+                <div class="input-group">
+                    <div><label for="address">Address</label></div>
+                    <div><input type="text" name="address" id="address" /></div>
+                </div>
+                <div class="input-group">
+                    <div><label for="city">City</label></div>
+                    <div>
+                        <select name="state" id="state">
+                            <option value="" selected>Select One</option>
+                            <option value="Nairobi">Nairobi</option>
+                            <option value="Mombasa">Mombasa</option>
+                            <option value="Kisumu">Kisumu</option>
+                            <option value="Eldoret">Eldoret</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <div><label for="postal-code">Postal Code</label></div>
+                    <div><input type="text" name="postal-code" id="postal-code" /></div>
+                </div>
+                <div class="input-group">
+                    <div><label for="comment">Comment</label></div>
+                    <div>
+                        <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Order" />
+            </form>
+        </article>
+    </main>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="pies.html">Pies</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<script>
+    window.addEventListener("DOMontentLoaded", function(e) {
+
+        const order = localStorage.getItem("order");
+
+        if(order) {
+            const pieOrder = JSON.parse(order);
+
+            const pie = document.querySelector(".pie");
+
+            const title = pie.querySelector(".title");
+            const desc = pie.querySelector(".desc");
+            const price = pie.querySelector(".price");
+
+            // Update values
+            title.innerText = pieOrder.title;
+            price.innerText = pieOrder.price;
+            desc.innerText = pieOrder.desc
+
+            const img = pie.querySelector("img");
+
+            img.setAttribute("src", `images/${pieOrder.id}.png`);
+            img.setAttribute("alt", pieOrder.title);
+        }
+    });
+</script>
+</html>
