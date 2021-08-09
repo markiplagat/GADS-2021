@@ -1,3 +1,4 @@
+'use strict';
 // Looping with for
 
 for (let i = 0; i < 5; i++) {
@@ -80,3 +81,32 @@ let person = {
     partTime: false
 }
 console.log(`${person.name} is ${person.age} years old`);
+
+// Filter
+const values = ["a", "b", "c", "d"];
+// or
+// const values = Array ("a", "b", "c", "d");
+
+const set = values.filter(function (item) {
+   console.log('Item: ', item); 
+   return item > "b";
+});
+console.log(set);
+
+// Add d-none to a class
+const containers = document.getElementsByClassName('container')
+
+containers[0].classList.add('d-none');
+console.log(containers);
+
+// Looping over a string
+let productName = "HR lead frame - Black, 67";
+let letters = "";
+
+for (const char of productName) {
+    letters += char;
+}
+console.log(letters);
+
+
+
