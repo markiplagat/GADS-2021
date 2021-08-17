@@ -61,7 +61,7 @@ const StarGame = (props) => {
 
 
     const candidatesAreWrong = utils.sum(candidateNums) > stars;
-    const gameStatus = availableNums.length === 0 ? "won" : secondsLeft === 0 ? "lost" : "active"
+    const gameStatus = availableNums.length === 0 ? "won" : secondsLeft === 0 ? "lost" : "active";
     const numberStatus = number => {
         if (!availableNums.includes(number)) {
             return 'used';
