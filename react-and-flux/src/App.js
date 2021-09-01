@@ -1,11 +1,19 @@
 import './App.css';
+import HomePage from "./components/HomePage";
+import Courses from "./components/Courses";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>App</h1>
-    </div>
-  );
+    function getPage() {
+        const route = window.location.pathname;
+        if (route === "/courses") return <Courses />
+
+    }
+    return (
+        <div className="App">
+            <HomePage />
+            {getPage()}
+        </div>
+    );
 }
 
 export default App;
