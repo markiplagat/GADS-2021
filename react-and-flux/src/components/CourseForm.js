@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import TextInput from "./TextInput";
 import * as courseApi from "../api/courseApi";
+import {toast} from "react-toastify";
 
-const CourseForm = () => {
+const CourseForm = (props) => {
     const [course, setCourse] = useState({
         id: null,
         slug: "",
@@ -19,7 +20,10 @@ const CourseForm = () => {
     };
     function handleSubmit(e) {
         e.preventDefault();
-        courseApi.saveCourse(course);
+        courseApi.saveCourse(course).then(() => {
+            props.history.push("/courses");
+            toast.success("Course Saved");
+        });
     }
     return (
         <form onSubmit={handleSubmit}>
