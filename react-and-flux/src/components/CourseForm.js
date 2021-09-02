@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import TextInput from "./TextInput";
 import * as courseApi from "../api/courseApi";
 import {toast} from "react-toastify";
+import PropTypes from "prop-types";
 
 const CourseForm = (props) => {
+    const [errors, setErrors] = useState({});
     const [course, setCourse] = useState({
         id: null,
         slug: "",
@@ -18,13 +20,28 @@ const CourseForm = (props) => {
             [target.name]: target.value
         });
     };
+
+    function formIsValid() {
+        const _errors = {};
+
+        if (!course.title) _errors.title = "Title is Required";
+        if (!course.authorId) _errors.authorId = "Author Id is Required";
+        if (!course.category) _errors.category = "Category is Required";
+
+        setErrors(_errors);
+        return Object.keys(_errors).length === 0;
+
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
+        if (!formIsValid()) return;
         courseApi.saveCourse(course).then(() => {
             props.history.push("/courses");
             toast.success("Course Saved");
         });
     }
+
     return (
         <form onSubmit={handleSubmit}>
             <TextInput
@@ -35,6 +52,7 @@ const CourseForm = (props) => {
                 className="form-control"
                 onChange={handleChange}
                 value={course.title}
+                error={errors.title}
             />
 
             <div className="form-group">
@@ -51,6 +69,9 @@ const CourseForm = (props) => {
                         <option value="1">Cory House</option>
                         <option value="2">Scott Allen</option>
                     </select>
+                    {errors.authorId && (
+                        <div className="alert alert-danger">{errors.authorId}</div>
+                    )}
                 </div>
             </div>
 
@@ -62,10 +83,17 @@ const CourseForm = (props) => {
                 onChange={handleChange}
                 className="form-control"
                 value={course.category}
+                error={errors.category}
             />
             <input type="submit" value="Save" className="btn btn-primary" />
         </form>
     );
 }
 
+CourseForm.propTypes = {
+    course: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    errors: PropTypes.object.isRequired
+}
 export default CourseForm;
