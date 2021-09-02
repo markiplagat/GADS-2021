@@ -2,9 +2,11 @@ import React from 'react';
 
 const HomePage = () => {
     return(
-        <nav>
-           <a href="/">Home</a> | <a href="/courses">Courses</a>
-        </nav>
+        <div className="jumbotron">
+            <h1>Courses</h1>
+            <hr/>
+            <p>List of Pluralsight courses and authors</p>
+        </div>
     );
 }
 

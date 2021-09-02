@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { getCourses } from "../api/courseApi";
+import { Link } from "react-router-dom";
 
 const Courses = () => {
     const [courses, setCourses] = useState([]);
@@ -10,6 +11,9 @@ const Courses = () => {
 
     return(
         <div>
+            <Link className="btn btn-primary" to="/course">
+                Add Course
+            </Link>
             <table className="table">
             <thead>
              <tr>
