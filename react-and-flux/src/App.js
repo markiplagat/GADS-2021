@@ -1,15 +1,14 @@
-import './App.css';
+import {Route, Switch} from "react-router-dom";
+import {ToastContainer} from "react-toastify";
 import HomePage from "./components/HomePage";
 import Courses from "./components/Courses";
-import {Route, Switch} from "react-router-dom";
 import NavBar from "./components/NavBar";
 import CourseForm from "./components/CourseForm";
-import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     return (
-        <div className="App">
+        <div className="container">
             <ToastContainer autoClose={4000} hideProgressBar />
             <NavBar />
             <Switch>

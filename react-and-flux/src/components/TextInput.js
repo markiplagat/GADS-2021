@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const TextInput = (props) => {
     let wrapperClass = "form-group";
@@ -22,17 +22,17 @@ const TextInput = (props) => {
             {props.error && <div className="alert alert-danger">{props.error}</div>}
         </div>
     );
-}
+};
 TextInput.propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string,
-    errors: PropTypes.string
+    errors: PropTypes.string,
 };
 
 TextInput.defaultProps = {
-    error: ""
-}
+    error: "",
+};
 export default TextInput;

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import {toast} from "react-toastify";
 import TextInput from "./TextInput";
 import * as courseApi from "../api/courseApi";
-import {toast} from "react-toastify";
 
 const CourseForm = (props) => {
     const [errors, setErrors] = useState({});
@@ -10,22 +10,22 @@ const CourseForm = (props) => {
         slug: "",
         title: "",
         authorId: null,
-        category: ""
+        category: "",
     });
 
     useEffect( () => {
-        const slug = props.match.params.slug;
+        const {slug} = props.match.params;
         if (slug) {
             courseApi.getCourseBySlug(slug).then(_course => {
                 setCourse(_course);
             });
-        };
+        }
     },[props.match.params.slug]);
 
     const handleChange = ({target}) => {
         setCourse({
             ...course,
-            [target.name]: target.value
+            [target.name]: target.value,
         });
     };
 
