@@ -85,6 +85,22 @@
       "authorId": 1,
       "category": "React",
       "createdAt": 1630618350072
+    },
+    {
+      "id": 13,
+      "slug": "software-engineer-ruby-rails-react",
+      "title": "Software Engineer. Ruby/Rails, React",
+      "authorId": 1,
+      "category": "Rails",
+      "createdAt": 1630618912102
+    },
+    {
+      "id": 14,
+      "slug": "software-engineer-ruby-rails-react",
+      "title": "Software Engineer. Ruby/Rails, React",
+      "authorId": 1,
+      "category": "React",
+      "createdAt": 1630619268947
     }
   ],
   "authors": [

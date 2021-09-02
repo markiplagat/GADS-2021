@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {toast} from "react-toastify";
 import TextInput from "./TextInput";
 import * as courseApi from "../api/courseApi";
+import * as courseActions from "../actions/courseActions";
 
 const CourseForm = (props) => {
     const [errors, setErrors] = useState({});
@@ -44,7 +45,7 @@ const CourseForm = (props) => {
     function handleSubmit(e) {
         e.preventDefault();
         if (!formIsValid()) return;
-        courseApi.saveCourse(course).then(() => {
+        courseActions.saveCourse(course).then(() => {
             props.history.push("/courses");
             toast.success("Course Saved");
         });
