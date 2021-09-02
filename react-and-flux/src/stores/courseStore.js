@@ -14,7 +14,7 @@ class CourseStore extends EventEmitter {
     }
 
     emitChange() {
-        this.emit(CHANGE_EVENT)
+        this.emit(CHANGE_EVENT);
     }
 
     // Get courses
@@ -40,5 +40,5 @@ Dispatcher.register(action => {
         break;
     default:
     }
-})
+});
 export default store;

@@ -36,6 +36,6 @@ const Courses = () => {
             </table>
         </div>
     );
-}
+};
 
 export default Courses;

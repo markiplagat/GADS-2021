@@ -96,6 +96,6 @@ const CourseForm = (props) => {
             <input type="submit" value="Save" className="btn btn-primary" />
         </form>
     );
-}
+};
 
 export default CourseForm;

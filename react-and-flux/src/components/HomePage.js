@@ -7,6 +7,6 @@ const HomePage = () => (
         <hr/>
         <p>List of Pluralsight courses and authors</p>
     </div>
-)
+);
 
 export default HomePage;

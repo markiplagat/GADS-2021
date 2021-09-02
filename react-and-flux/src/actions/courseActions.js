@@ -7,6 +7,6 @@ export function saveCourse(course){
         dispatcher.dispatch({
             actionType: actionTypes.CREATE_COURSE,
             course: savedCourse,
-        })
-    })
+        });
+    });
 }
