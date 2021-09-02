@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import TextInput from "./TextInput";
 import * as courseApi from "../api/courseApi";
 import {toast} from "react-toastify";
-import PropTypes from "prop-types";
 
 const CourseForm = (props) => {
     const [errors, setErrors] = useState({});
@@ -13,6 +12,15 @@ const CourseForm = (props) => {
         authorId: null,
         category: ""
     });
+
+    useEffect( () => {
+        const slug = props.match.params.slug;
+        if (slug) {
+            courseApi.getCourseBySlug(slug).then(_course => {
+                setCourse(_course);
+            });
+        };
+    },[props.match.params.slug]);
 
     const handleChange = ({target}) => {
         setCourse({
@@ -90,10 +98,4 @@ const CourseForm = (props) => {
     );
 }
 
-CourseForm.propTypes = {
-    course: PropTypes.object.isRequired,
-    onSubmit: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-    errors: PropTypes.object.isRequired
-}
 export default CourseForm;
