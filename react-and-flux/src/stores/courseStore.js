@@ -3,7 +3,7 @@ import Dispatcher from '../appDispatcher';
 import actionTypes from "../actions/actionTypes";
 
 const CHANGE_EVENT = "change";
-const _courses = [];
+let _courses = [];
 class CourseStore extends EventEmitter {
     addChangeListener(callback) {
         this.on(CHANGE_EVENT, callback);
@@ -36,6 +36,10 @@ Dispatcher.register(action => {
     case actionTypes.CREATE_COURSE:
         _courses.push(action.course);
         // Notify every component that depends on change
+        store.emitChange();
+        break;
+    case actionTypes.LOAD_COURSES:
+        _courses = action.courses;
         store.emitChange();
         break;
     default:

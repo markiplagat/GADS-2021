@@ -72,35 +72,35 @@
     },
     {
       "id": 11,
-      "slug": "se",
-      "title": "SE",
+      "slug": "software-engineer-ruby-rails-react",
+      "title": "Software Engineer. Ruby/Rails, React",
       "authorId": 2,
       "category": "React",
-      "createdAt": 1630618318969
+      "createdAt": 1631028444890
     },
     {
       "id": 12,
-      "slug": "software-engineer-ruby-rails-react",
-      "title": "Software Engineer. Ruby/Rails, React",
-      "authorId": 1,
-      "category": "React",
-      "createdAt": 1630618350072
+      "slug": "se",
+      "title": "SE",
+      "authorId": 2,
+      "category": "Rails",
+      "createdAt": 1631028475422
     },
     {
       "id": 13,
-      "slug": "software-engineer-ruby-rails-react",
-      "title": "Software Engineer. Ruby/Rails, React",
+      "slug": "software-engineer-ruby-rails",
+      "title": "Software Engineer. Ruby/Rails",
       "authorId": 1,
-      "category": "Rails",
-      "createdAt": 1630618912102
+      "category": "React",
+      "createdAt": 1631028843930
     },
     {
       "id": 14,
-      "slug": "software-engineer-ruby-rails-react",
-      "title": "Software Engineer. Ruby/Rails, React",
+      "slug": "software-engineer-ruby-rails",
+      "title": "Software Engineer. Ruby/Rails",
       "authorId": 1,
-      "category": "React",
-      "createdAt": 1630619268947
+      "category": "Rails",
+      "createdAt": 1631028858367
     }
   ],
   "authors": [
