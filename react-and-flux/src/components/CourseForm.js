@@ -3,9 +3,11 @@ import {toast} from "react-toastify";
 import TextInput from "./TextInput";
 import * as courseApi from "../api/courseApi";
 import * as courseActions from "../actions/courseActions";
+import courseStore from "../stores/courseStore";
 
 const CourseForm = (props) => {
     const [errors, setErrors] = useState({});
+    const [courses, setCourses] = useState(courseStore.getCourses());
     const [course, setCourse] = useState({
         id: null,
         slug: "",
@@ -15,14 +17,21 @@ const CourseForm = (props) => {
     });
 
     useEffect( () => {
+        courseStore.addChangeListener(onChange);
         const {slug} = props.match.params;
-        if (slug) {
-            courseApi.getCourseBySlug(slug).then(_course => {
-                setCourse(_course);
-            });
+        if ( courses.length === 0 ){
+            courseActions.loadCourses();
         }
-    },[props.match.params.slug]);
+         else if (slug) {
+             setCourse(courseStore.getCoursesBySlug())
+                setCourse(courseStore.getCoursesBySlug(slug));
+        }
+        return () => courseStore.removeChangeListener(onChange)
+    },[courses.length, props.match.params.slug]);
 
+    function onChange() {
+        setCourses(courseStore.getCourses());
+    }
     const handleChange = ({target}) => {
         setCourse({
             ...course,
