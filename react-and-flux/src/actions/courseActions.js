@@ -5,7 +5,7 @@ import actionTypes from "./actionTypes";
 export function saveCourse(course){
     return courseApi.saveCourse(course).then(savedCourse => {
         dispatcher.dispatch({
-            actionType: courseId
+            actionType: course.id
                 ? actionTypes.UPDATE_COURSE
                 : actionTypes.CREATE_COURSE,
             course: savedCourse,
@@ -20,4 +20,14 @@ export function loadCourses() {
             courses: courses,
         });
     });
+}
+
+// Delete course
+export function deleteCourse(id) {
+    return courseApi.deleteCourse(id).then( () => {
+        dispatcher.dispatch({
+            actionType: actionTypes.DELETE_COURSE,
+            id: id,
+        })
+    })
 }

@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 import courseStore from "../stores/courseStore";
-import { loadCourses } from "../actions/courseActions";
+import { loadCourses, deleteCourse } from "../actions/courseActions";
+import { toast } from "react-toastify";
 
 const Courses = () => {
     const [courses, setCourses] = useState(courseStore.getCourses());
@@ -28,6 +29,7 @@ const Courses = () => {
                         <th>Title</th>
                         <th>Author Id</th>
                         <th>Category</th>
+                        <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,6 +40,14 @@ const Courses = () => {
                             </td>
                             <td>{course.authorId}</td>
                             <td>{course.category}</td>
+                            <button
+                                className="btn btn-outline-danger"
+                                onClick = {() => deleteCourse(course.id).then(() => {
+                                    toast.success("Course was Deleted successfully");
+                                })}
+                            >
+                                Delete
+                            </button>
                         </tr>
                     ))}
                 </tbody>
