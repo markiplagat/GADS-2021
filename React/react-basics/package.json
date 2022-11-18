@@ -53,6 +53,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.20"
   }
 }
